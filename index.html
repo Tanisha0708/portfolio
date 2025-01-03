@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Tanisha Chavan - Computer Engineer, Cybersecurity Enthusiast, and Aspiring Innovator">
+    <meta name="author" content="Tanisha Chavan">
+    <title>Tanisha Chavan - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Vanta.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.clouds.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            perspective: 1000px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+            gap: 1rem;
+        }
+
+        .nav-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.4rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-circle:hover {
+            transform: translateY(-10px);
+            background-color: #74ebd5;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .star-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .star {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 195, 255, 0.1);
+            border-radius: 50%;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(0, 195, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(0, 195, 255, 0.5),
+                           0 0 40px rgba(0, 145, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(0, 195, 255, 0.8),
+                           0 0 60px rgba(0, 145, 255, 0.5);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            background: #74ebd5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #acb6e5;
+        }
+
+        section {
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .about-box {
+            background: white;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            margin: auto;
+            max-width: 800px;
+            border-radius: 15px;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            letter-spacing: 0.3px;
+        }
+
+        .about-box p {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .about-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .skill-logo {
+            width: 100px;
+            height: 100px;
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .project-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .achievements-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: auto;
+            max-width: 800px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: auto;
+            max-width: 800px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-divider {
+            border-top: 1px solid #ddd;
+            margin: 1rem 0;
+        }
+
+        .social-links {
+            text-align: center;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: white;
+            font-size: 2.2rem;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .pending-resume {
+            font-size: 4rem;
+            font-weight: bold;
+            color: red;
+            display: none;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .star h1 {
+            margin: 0.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        .star p {
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1rem;
+        }
+
+        .resume-btn {
+            background: #0077ff;
+            color: white;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .resume-btn:hover {
+            background: #0055cc;
+            transform: translateY(-3px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 15% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .close-btn:hover {
+            color: #0077ff;
+        }
+
+        .status-message {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about" class="nav-circle">About</a>
+            <a href="#skills" class="nav-circle">Skills</a>
+            <a href="#projects" class="nav-circle">Projects</a>
+            <a href="#achievements" class="nav-circle">claims</a>
+            <a href="#contact" class="nav-circle">Contact</a>
+            <a href="#" class="nav-circle" onclick="openQAModal()">Q&A</a>
+        </nav>
+        <div class="hero">
+            <div class="star-container">
+                <div class="star">
+                    <img src="tanisha pic in cafe.jpg" alt="Tanisha Chavan" class="profile-pic">
+                    <h1>Hi, I'm Tanisha Chavan</h1>
+                    <p>Computer Engineer, Cybersecurity Enthusiast, and Aspiring Innovator</p>
+                    <button class="btn resume-btn" onclick="openResume()">Resume</button>
+                </div>
+            </div>
+            <p class="pending-resume">Resume is Pending</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-box">
+            <p>
+                I am Tanisha Chavan, a Computer Engineer with a passion for Cybersecurity and Software Development. With hands-on experience in building innovative projects, including disaster management apps and job portals, I aim to create impactful, secure solutions for underserved communities. I continuously strive to enhance my skills and contribute to technological advancements.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java" class="skill-logo">
+            <img src="https://www.python.org/static/community_logos/python-logo-generic.svg" alt="Python" class="skill-logo">
+            <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML" class="skill-logo">
+            <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS" class="skill-logo">
+            <img src="https://reactjs.org/logo-og.png" alt="React.js" class="skill-logo">
+            <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js" class="skill-logo">
+            <img src="https://img.icons8.com/color/96/000000/firebase.png" alt="Firebase" class="skill-logo">
+            <img src="https://vuejs.org/images/logo.png" alt="Vue.js" class="skill-logo">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/postman-icon.png" alt="Postman" class="skill-logo">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="skill-logo">
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-box">
+            <h3>Empowering Potential: Job Portal for Specially Abled People</h3>
+            <p>Features accessibility, real-time job search, and security with Auth0.</p>
+            <a href="https://github.com/Tanisha0708/pechacks2024" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+        <div class="project-box">
+            <h3>Task Manager and Smile Detector</h3>
+            <p>Detects smiles in percentage, adds tasks, and celebrates after completion.</p>
+            <a href="https://github.com/Tanisha0708/Task-and-Smile-Detector" target="_blank" rel="noopener noreferrer">View Project</a>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <div class="achievements-box">
+            <ul>
+                <li>PEC 2.0 Finalist</li>
+                <li>GirlScript Summer of Code '24 - Extended Rank 192/40K+</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="achievements-box">
+            <ul>
+                <li>Cyber Security Technical Team Member</li>
+                <li>ACM Student Chapter PR and Outreach Member</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-box">
+            <div class="contact-form">
+                <h3>Send Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="social-links">
+                <p>Feel free to connect with me:</p>
+                <div class="social-icons">
+                    <a href="mailto:tanishachavan18@gmail.com" style="color: #D44638;"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/tanisha-chavan-74660b298" style="color: #0077B5;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Tanisha0708" style="color: #000;"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add QA Modal -->
+    <div id="qaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeQAModal()">&times;</span>
+            <h2>Ask Me Anything</h2>
+            <div class="form-group">
+                <textarea id="question" placeholder="Type your question here..." rows="4" required></textarea>
+            </div>
+            <button onclick="submitQuestion()" class="btn resume-btn">Send Question</button>
+            <div id="questionStatus" class="status-message"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Tanisha Chavan. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openResume() {
+            // Open Resume2.pdf in a new tab
+            window.open('Resume2.pdf', '_blank');
+        }
+
+        // Initialize Vanta clouds effect
+        VANTA.CLOUDS({
+            el: "body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            backgroundColor: 0x001a33,    // Dark blue background
+            cloudColor: 0x0077ff,         // Bright blue clouds
+            cloudShadowColor: 0x004d99,   // Darker blue shadow
+            sunColor: 0x0055cc,           // Blue sun glow
+            speed: 1.00
+        });
+
+        function openQAModal() {
+            document.getElementById('qaModal').style.display = 'block';
+        }
+
+        function closeQAModal() {
+            document.getElementById('qaModal').style.display = 'none';
+        }
+
+        function submitQuestion() {
+            const question = document.getElementById('question').value;
+            if (!question.trim()) {
+                alert('Please type your question');
+                return;
+            }
+
+            // Create form data
+            const formData = new FormData();
+            formData.append('question', question);
+
+            // You'll need to replace this URL with your actual endpoint
+            fetch('your-backend-endpoint', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const status = document.getElementById('questionStatus');
+                status.style.display = 'block';
+                status.style.backgroundColor = '#d4edda';
+                status.style.color = '#155724';
+                status.textContent = 'Question sent successfully! I will respond soon.';
+                
+                // Clear the question field
+                document.getElementById('question').value = '';
+                
+                // Close the modal after 2 seconds
+                setTimeout(() => {
+                    closeQAModal();
+                    status.style.display = 'none';
+                }, 2000);
+            })
+            .catch(error => {
+                const status = document.getElementById('questionStatus');
+                status.style.display = 'block';
+                status.style.backgroundColor = '#f8d7da';
+                status.style.color = '#721c24';
+                status.textContent = 'Error sending question. Please try again.';
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('qaModal');
+            if (event.target == modal) {
+                closeQAModal();
+            }
+        }
+    </script>
+</body>
+</html>
